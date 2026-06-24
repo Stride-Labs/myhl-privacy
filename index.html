@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MyHL for Hyperliquid — Privacy Policy</title>
+  <style>
+    :root { color-scheme: dark; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      line-height: 1.6;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+      background: #0f1a1f;
+      color: #f6fefd;
+    }
+    h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+    .meta { color: #87908f; font-size: 0.9rem; margin-bottom: 2rem; }
+    h2 { font-size: 1.1rem; margin-top: 2rem; color: #50e3c2; }
+    a { color: #50e3c2; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    th, td { border: 1px solid #303030; padding: 0.5rem 0.65rem; text-align: left; vertical-align: top; }
+    th { background: #152228; }
+    ul { padding-left: 1.25rem; }
+    li { margin: 0.35rem 0; }
+  </style>
+</head>
+<body>
+  <h1>MyHL for Hyperliquid — Privacy Policy</h1>
+  <p class="meta">Effective June 24, 2026 · STRIDE LABS INC · <a href="mailto:riley@stridelabs.co">riley@stridelabs.co</a></p>
+
+  <p>
+    This policy describes how the <strong>MyHL for Hyperliquid</strong> Chrome extension
+    (“MyHL”, “we”, “us”) handles information when you use it on
+    <a href="https://app.hyperliquid.xyz">app.hyperliquid.xyz</a>.
+  </p>
+
+  <h2>Scope</h2>
+  <p>
+    MyHL runs only on Hyperliquid’s web app. It does not run on other websites.
+    MyHL is not affiliated with Hyperliquid.
+  </p>
+
+  <h2>Live data mode (default)</h2>
+  <p>
+    New installs use <strong>Live data</strong> by default. MyHL contacts our hosted
+    read-only data API at <code>myhl-production.up.railway.app</code>:
+  </p>
+  <table>
+    <thead>
+      <tr><th>What is sent</th><th>When</th><th>Stored by MyHL?</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Your public Ethereum wallet address</td>
+        <td>Portfolio / net-exposure features that load your account summary</td>
+        <td>No long-term database. In-memory cache on our server for up to 30 seconds, then discarded.</td>
+      </tr>
+      <tr>
+        <td>Public market identifiers (coin symbols)</td>
+        <td>Chart overlay layers you enable (funding, L2 book, diffs, calendar)</td>
+        <td>Public market data only; in-memory cache from 5 seconds to 5 minutes depending on data type, then discarded.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    Our server proxies Hyperliquid’s public API to return read-only account and market
+    data to your browser. We use this solely to render overlays and portfolio views
+    you see on the page.
+  </p>
+
+  <h2>Demo data mode</h2>
+  <p>
+    You can switch to <strong>Demo data</strong> in the extension brand menu. In Demo mode,
+    MyHL does <strong>not</strong> contact MyHL servers. Chart overlays and portfolio views
+    use bundled or synthetic sample data shipped inside the extension package. Your public
+    wallet address is not sent to us in Demo mode. An in-product disclosure appears if you switch
+    from Demo back to Live.
+  </p>
+
+  <h2>Direct requests to Hyperliquid</h2>
+  <p>
+    MyHL may send one optional request directly from your browser to
+    <code>api.hyperliquid.xyz</code> for public market metadata (asset leverage limits)
+    used by the what-if liquidation calculator. That request does <strong>not</strong>
+    include your public wallet address.
+  </p>
+  <p>
+    Hyperliquid’s own site traffic (including data Hyperliquid loads for your session)
+    is governed by Hyperliquid’s policies, not this policy.
+  </p>
+
+  <h2>What we do not collect or transmit</h2>
+  <ul>
+    <li>Private keys, seed phrases, or signing material</li>
+    <li>Orders you place or trade history uploads</li>
+    <li>Analytics or usage telemetry</li>
+  </ul>
+
+  <h2>How your public wallet address is used</h2>
+  <p>
+    MyHL reads your public Ethereum wallet address from the Hyperliquid page (URL, UI,
+    or Hyperliquid’s own API traffic on the page) to power portfolio views in your browser.
+    In <strong>Live data</strong> mode (the default), that public address is sent to our
+    API when portfolio or net-exposure features load your account summary. In
+    <strong>Demo data</strong> mode, your public wallet address is never sent to MyHL servers.
+  </p>
+
+  <h2>Local storage</h2>
+  <p>
+    Feature toggles, overlay preferences, and your Demo/Live choice are stored in your
+    browser’s <code>localStorage</code> on your device. They are not synced to MyHL servers.
+  </p>
+
+  <h2>Third parties</h2>
+  <ul>
+    <li><strong>Hyperliquid</strong> — public API used as the data source when Live mode is on.</li>
+    <li><strong>Railway</strong> — hosts the MyHL data API. Platform HTTP logs may transiently include request URLs.</li>
+  </ul>
+
+  <h2>Chrome Web Store Limited Use</h2>
+  <p>
+    MyHL’s use of information received from Google APIs or Chrome Web Store user data
+    adheres to the
+    <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use">Chrome Web Store User Data Policy</a>,
+    including the Limited Use requirements.     We do not sell user data. We do not use
+    public wallet or account data for purposes unrelated to MyHL’s core functionality (displaying
+    Hyperliquid portfolio and chart overlays). We do not use this data to determine
+    creditworthiness or for lending.
+  </p>
+
+  <h2>Security</h2>
+  <p>
+    Live-mode API traffic uses HTTPS. No executable code is downloaded from our servers;
+    only JSON data is fetched.
+  </p>
+
+  <h2>Changes</h2>
+  <p>
+    We may update this policy when MyHL’s behavior changes. The effective date at the
+    top will be revised. Continued use after an update constitutes acceptance of the
+    revised policy.
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    STRIDE LABS INC<br>
+    Email: <a href="mailto:riley@stridelabs.co">riley@stridelabs.co</a>
+  </p>
+</body>
+</html>
