@@ -28,7 +28,7 @@
 </head>
 <body>
   <h1>MyHL for Hyperliquid — Privacy Policy</h1>
-  <p class="meta">Effective June 24, 2026 · STRIDE LABS INC · <a href="mailto:riley@stridelabs.co">riley@stridelabs.co</a></p>
+  <p class="meta">Effective July 6, 2026 · STRIDE LABS INC · <a href="mailto:riley@stridelabs.co">riley@stridelabs.co</a></p>
 
   <p>
     This policy describes how the <strong>MyHL for Hyperliquid</strong> Chrome extension
@@ -54,7 +54,7 @@
     <tbody>
       <tr>
         <td>Your public Ethereum wallet address</td>
-        <td>Portfolio / net-exposure features that load your account summary</td>
+        <td>Portfolio / net-exposure features that load your account summary; Sub-Accounts per-DEX equity popovers</td>
         <td>No long-term database. In-memory cache on our server for up to 30 seconds, then discarded.</td>
       </tr>
       <tr>
@@ -91,11 +91,33 @@
     is governed by Hyperliquid’s policies, not this policy.
   </p>
 
-  <h2>What we do not collect or transmit</h2>
+  <h2>Trading and transfers (signed on your device)</h2>
+  <p>
+    Some optional features let you take actions on Hyperliquid. When you use them, the request
+    is signed on your device and sent <strong>directly to Hyperliquid</strong>
+    (<code>api.hyperliquid.xyz</code>) — it does not pass through MyHL servers.
+  </p>
   <ul>
-    <li>Private keys, seed phrases, or signing material</li>
-    <li>Orders you place or trade history uploads</li>
-    <li>Analytics or usage telemetry</li>
+    <li>
+      <strong>World Cup orders.</strong> Trading is off until you turn it on. When you enable it,
+      you approve a Hyperliquid agent key that is stored only in your browser’s local storage on
+      your device. MyHL uses that key to sign the outcome orders you place. The key is never sent
+      to MyHL, and you can remove it at any time from the extension or by clearing your browser storage.
+    </li>
+    <li>
+      <strong>Sub-account transfers.</strong> Moving USDC between your own Spot and Perps balances
+      is signed by your own external wallet (for example, MetaMask). MyHL never holds or receives
+      your wallet’s private keys or seed phrase.
+    </li>
+  </ul>
+
+  <h2>What MyHL never receives</h2>
+  <p>These never leave your device to MyHL servers:</p>
+  <ul>
+    <li>Your wallet private keys or seed phrase.</li>
+    <li>The Hyperliquid trading key you approve for World Cup orders — it stays in your browser and is used only to sign, on your device.</li>
+    <li>The orders and transfers you sign — they go directly to Hyperliquid, not through MyHL.</li>
+    <li>Analytics or usage telemetry.</li>
   </ul>
 
   <h2>How your public wallet address is used</h2>
@@ -103,14 +125,17 @@
     MyHL reads your public Ethereum wallet address from the Hyperliquid page (URL, UI,
     or Hyperliquid’s own API traffic on the page) to power portfolio views in your browser.
     In <strong>Live data</strong> mode (the default), that public address is sent to our
-    API when portfolio or net-exposure features load your account summary. In
+    API when portfolio or net-exposure features load your account summary, and when you open
+    Sub-Accounts per-DEX equity popovers. In
     <strong>Demo data</strong> mode, your public wallet address is never sent to MyHL servers.
   </p>
 
   <h2>Local storage</h2>
   <p>
     Feature toggles, overlay preferences, and your Demo/Live choice are stored in your
-    browser’s <code>localStorage</code> on your device. They are not synced to MyHL servers.
+    browser’s <code>localStorage</code> on your device. If you enable World Cup trading, the
+    Hyperliquid agent key you approve is also stored locally on your device. None of this is
+    synced to MyHL servers.
   </p>
 
   <h2>Third parties</h2>
@@ -124,7 +149,7 @@
     MyHL’s use of information received from Google APIs or Chrome Web Store user data
     adheres to the
     <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use">Chrome Web Store User Data Policy</a>,
-    including the Limited Use requirements.     We do not sell user data. We do not use
+    including the Limited Use requirements. We do not sell user data. We do not use
     public wallet or account data for purposes unrelated to MyHL’s core functionality (displaying
     Hyperliquid portfolio and chart overlays). We do not use this data to determine
     creditworthiness or for lending.
