@@ -99,10 +99,11 @@
   </p>
   <ul>
     <li>
-      <strong>World Cup orders.</strong> Trading is off until you turn it on. When you enable it,
-      you approve a Hyperliquid agent key that is stored only in your browser’s local storage on
-      your device. MyHL uses that key to sign the outcome orders you place. The key is never sent
-      to MyHL, and you can remove it at any time from the extension or by clearing your browser storage.
+      <strong>World Cup orders.</strong> Trading is off until you turn it on, which opens
+      Hyperliquid’s own “Enable Trading” flow. MyHL reuses the trading connection Hyperliquid
+      establishes — the agent key that Hyperliquid creates and stores in your browser — to sign the
+      outcome orders you place. MyHL does not create, store, or transmit any key of its own, and the
+      key is never sent to MyHL.
     </li>
     <li>
       <strong>Sub-account transfers.</strong> Moving USDC between your own Spot and Perps balances
@@ -115,7 +116,7 @@
   <p>These never leave your device to MyHL servers:</p>
   <ul>
     <li>Your wallet private keys or seed phrase.</li>
-    <li>The Hyperliquid trading key you approve for World Cup orders — it stays in your browser and is used only to sign, on your device.</li>
+    <li>Hyperliquid’s trading key — MyHL reuses the key Hyperliquid stores in your browser to sign on your device; MyHL never creates, stores, or receives it.</li>
     <li>The orders and transfers you sign — they go directly to Hyperliquid, not through MyHL.</li>
     <li>Analytics or usage telemetry.</li>
   </ul>
@@ -133,9 +134,10 @@
   <h2>Local storage</h2>
   <p>
     Feature toggles, overlay preferences, and your Demo/Live choice are stored in your
-    browser’s <code>localStorage</code> on your device. If you enable World Cup trading, the
-    Hyperliquid agent key you approve is also stored locally on your device. None of this is
-    synced to MyHL servers.
+    browser’s <code>localStorage</code> on your device; they are not synced to MyHL servers.
+    For World Cup orders, MyHL only <strong>reads</strong> Hyperliquid’s existing trading key from
+    your browser (created by Hyperliquid’s own “Enable Trading” flow) to sign orders you place —
+    MyHL does not write or store that key.
   </p>
 
   <h2>Third parties</h2>
